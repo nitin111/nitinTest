@@ -58,7 +58,7 @@ class Car
 $carObj = new Car; //new object of Class Car created, and constructor is called
 
 
-$carObj->setColor( 'Red' );
-$carObj->setWheels( 4 );
+$carObj->setColor( 'Red' ); // Se the iniciated value to color function 'Red'
+$carObj->setWheels( 4 ); // Set the iniciated value to wheels function  '4'
 
-$carObj->callback_save_data();
+$carObj->callback_save_data(); // calling the save function for saving the data into DB.
