@@ -6,6 +6,8 @@
  * Time: 2:19 PM
  */
 
+//var_dump('Testing File'); die(0);
+
 class Car
 {
     public $color;
@@ -13,31 +15,41 @@ class Car
 
     public function __construct()
     {
-        callback_wheels_number( $wheel);
-        callback_color( $color );
-        $pdo = new PDO('mysql:host=localhost;dbname=nitintest', 'root', '');
+
     }
 
-    public function callback_wheels_number ( $wheel)
+    public function setWheels($wheel)
     {
         $this->wheel = $wheel;
     }
 
-    public function callback_color ( $color )
+    public function getWheels()
+    {
+        return $this->wheel;
+    }
+
+    public function setColor($color)
     {
         $this->color = $color;
     }
 
-    public function callback_save_data( $wheel, $color )
+    public function getColor()
+    {
+        return $this->color;
+    }
+
+
+    public function callback_save_data()
     {
         $wheels = $this->wheel;
         $colors = $this->color;
 
-        var_dump($wheels . $colors);
+        var_dump('Wheels: '.$wheels .' Color: '. $colors);
+        die('Iniciated Values Received');
 
-        $stmt = $pdo->prepare("INSERT INTO `car` (car_wheels`, `car_color`) VALUES ($wheels, $colors);");
-
-        $stmt->execute();
+       // $pdo = new PDO('mysql:host=localhost;dbname=nitintest', 'root', '');
+       // $stmt = $pdo->prepare("INSERT INTO `car` (car_wheels`, `car_color`) VALUES ($wheels, $colors);");
+       //  $stmt->execute();
 
     }
 }
@@ -46,7 +58,7 @@ class Car
 $carObj = new Car; //new object of Class Car created, and constructor is called
 
 
-$carObj->callback_color( 'Red' );
-$carObj->callback_wheels_number( 4 );
+$carObj->setColor( 'Red' );
+$carObj->setWheels( 4 );
 
-$carObj->callback_wheels_number( 3, 'Black');
+$carObj->callback_save_data();
